@@ -16,8 +16,6 @@ public class ServeurChat {
 
 		try {
 			serverSocket = new ServerSocket(port);
-			System.out.println("\n[Info] Lancement du serveur sur le port " + port);
-
 			while (true) {
 				socketClient = serverSocket.accept();
 				new ServiceChat(socketClient);

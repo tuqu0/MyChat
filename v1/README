@@ -1,12 +1,16 @@
------------ MyChat v0 -----------
+----------- MyChat v1 -----------
 
 * Fonctionnalités :
 
 - le serveur se connecte sur le port tcp 1212
+- un nombre maximum de clients est définis (3 par défaut)
 - un thread est lancé pour chaque nouveau client qui se connecte
-- le client doit saisir un pseudonyme
-- si le pseudonyme est déjà pris par un utilisateur connecté,
-  l'utilisateur doit en saisir un nouveau
-- lors de la connection d'un nouvel utilisateur, son pseudonyme
-  est affiché à tous les utilisateurs
-
+- le client doit saisir un pseudonyme, si le pseudonyme est déja utilisé,
+  le client doit en choisir un autre
+- tous les utilisateurs ainsi que le serveur, sont informés de la
+  connection d'un nouveau client
+- tous les utilisateurs ainsi que le serveur, sont informés de la
+  déconnection d'un client
+- les déconnections intempestives (Ctrl-c) sont gérés
+- le port d'écoute du serveur, ainsi que les connections et déconnections
+  des clients sont affichés sur la console du serveur

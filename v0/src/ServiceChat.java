@@ -40,17 +40,16 @@ public class ServiceChat extends Thread {
 			/* Vérification que le nombre max de clients autorisés n'est pas atteint */
 			if (nb_users >= nb_users_max) {
 				out.println("Le nombre maximum d'utilisateurs est atteint (" + nb_users + ")");
-				System.out.println(socket.getRemoteSocketAddress() + " : Le nombre maximum d'utilisateurs est atteint (" + nb_users + ")");
 				socket.close();
 				return false;
 			}
 			
 			/* Récupération du pseudo du client */
-			out.print("nickname : ");
+			out.print("pseudo : ");
 			login = in.next();	
 			while (clients.get(login) != null) {
-				out.println("[Info] " + login + " is already connected");
-				out.print("nickname : ");
+				out.println("[Info] " + login + " est déjà connecté");
+				out.print("pseudo : ");
 				login = in.next();	
 			}
 		
@@ -61,10 +60,6 @@ public class ServiceChat extends Thread {
 				/* Incrémentation du nombre de clients */
 				nb_users++;
 			}
-			
-			/* Informe tous les clients qu'un nouvel utilisateur est connecté */
-			messageAll("[Info] " + login + " is connected");
-			System.out.println("[Info] " + login + " is connected");
 			
 			return true;
 		}
@@ -108,11 +103,7 @@ public class ServiceChat extends Thread {
 			}
 			catch (Exception e) {
 				e.printStackTrace(System.out);
-			}
-			
-			/* Informe tous les clients qu'un client s'est déconnecté */
-			messageAll("[Info] " + login + " s'est déconnecté");
-			System.out.println("[Info] " + login + " s'est déconnecté");		
+			}	
 	}
 
 	public void messageAll(String msg) {

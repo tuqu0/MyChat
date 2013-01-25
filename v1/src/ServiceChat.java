@@ -46,11 +46,11 @@ public class ServiceChat extends Thread {
 			}
 			
 			/* Récupération du pseudo du client */
-			out.print("nickname : ");
+			out.print("pseudo : ");
 			login = in.next();	
 			while (clients.get(login) != null) {
-				out.println("[Info] " + login + " is already connected");
-				out.print("nickname : ");
+				out.println("[Info] " + login + " est déjà connecté");
+				out.print("pseudo : ");
 				login = in.next();	
 			}
 		
@@ -63,8 +63,8 @@ public class ServiceChat extends Thread {
 			}
 			
 			/* Informe tous les clients qu'un nouvel utilisateur est connecté */
-			messageAll("[Info] " + login + " is connected");
-			System.out.println("[Info] " + login + " is connected");
+			messageAll("[Info] " + login + " est connecté");
+			System.out.println("[Info] " + login + " est connecté");
 			
 			return true;
 		}
